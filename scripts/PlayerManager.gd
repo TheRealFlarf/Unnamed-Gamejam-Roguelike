@@ -40,21 +40,7 @@ func control_process(delta: float) -> void:
 		return
 	
 	if check_player_state('EXPLORE'):
-		if Input.is_action_pressed('move_up'):
-			playerVelocityQueue += Vector3(0,0,-1)
-			print('moving up!')
-		if Input.is_action_pressed('move_down'):
-			playerVelocityQueue += Vector3(0,0,1)
-			print('moving down!')
-		if Input.is_action_pressed('move_left'):
-			playerVelocityQueue += Vector3(-1,0,1)
-			print('moving left!')
-		if Input.is_action_pressed('move_right'):
-			playerVelocityQueue += Vector3(1,0,-1)
-			print('moving right!')
-	
-	var lerpVel: Vector3 = lerp(PLAYER.velocity, playerVelocityQueue, acceleration)
-	PLAYER.set_velocity(MAIN.cap_vec(lerpVel, MAIN.split_to_vec3(playerMaxSpeed)))
+		return
 	
 	if check_player_state('COMBAT'):
 		return
