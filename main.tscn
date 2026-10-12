@@ -40,20 +40,17 @@ script = ExtResource("2_lquwl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.4791108, 0)
 mesh = SubResource("BoxMesh_bn7nu")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="MapManager" unique_id=174287000]
+transform = Transform3D(0.7638105, -0.36352164, 0.5333344, 0, 0.8263106, 0.5632147, -0.6454406, -0.4301893, 0.6311447, 0, 0, 0)
+shadow_enabled = true
+sky_mode = 1
+
 [node name="CameraManager" type="Node3D" parent="." unique_id=978612493]
 script = ExtResource("3_7mycd")
 
 [node name="Camera3D" type="Camera3D" parent="CameraManager" unique_id=1790315107]
 environment = SubResource("Environment_iriu6")
 fov = 90.0
-
-[node name="SpotLight3D" type="SpotLight3D" parent="CameraManager" unique_id=1202905829]
-light_energy = 13.674
-light_volumetric_fog_energy = 0.0
-light_specular = 9.938
-shadow_enabled = true
-spot_range = 44.957
-spot_angle = 60.17
 
 [node name="PlayerManager" type="Node3D" parent="." unique_id=881425537]
 script = ExtResource("4_272bh")

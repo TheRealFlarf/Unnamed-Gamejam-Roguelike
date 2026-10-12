@@ -13,5 +13,3 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	CAMERA.set_position(PLAYER.position + Vector3(0,5,5))
 	CAMERA.set_rotation_degrees(Vector3(-45,0,0))
-	LIGHT.set_rotation_degrees(CAMERA.rotation_degrees + Vector3(0,20,0))
-	LIGHT.set_position(CAMERA.position + Vector3(1,0,0))
