@@ -18,7 +18,7 @@ size = Vector3(8, 1, 8)
 background_mode = 1
 background_color = Color(0.3470055, 0.6449692, 0.8773423, 1)
 ambient_light_source = 2
-ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_color = Color(0.41957045, 0.42174587, 0.49770743, 1)
 ambient_light_energy = 16.0
 reflected_light_source = 1
 
@@ -46,6 +46,14 @@ script = ExtResource("3_7mycd")
 [node name="Camera3D" type="Camera3D" parent="CameraManager" unique_id=1790315107]
 environment = SubResource("Environment_iriu6")
 fov = 90.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CameraManager" unique_id=1202905829]
+light_energy = 13.674
+light_volumetric_fog_energy = 0.0
+light_specular = 9.938
+shadow_enabled = true
+spot_range = 44.957
+spot_angle = 60.17
 
 [node name="PlayerManager" type="Node3D" parent="." unique_id=881425537]
 script = ExtResource("4_272bh")

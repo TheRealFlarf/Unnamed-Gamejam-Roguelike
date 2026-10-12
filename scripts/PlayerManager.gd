@@ -40,7 +40,14 @@ func control_process(delta: float) -> void:
 		return
 	
 	if check_player_state('EXPLORE'):
-		return
+		var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		if direction:
+			PLAYER.velocity.x = direction.x * playerMaxSpeed
+			PLAYER.velocity.z = direction.z * playerMaxSpeed
+		else:
+			PLAYER.velocity.x = move_toward(PLAYER.velocity.x, 0, acceleration)
+			PLAYER.velocity.z = move_toward(PLAYER.velocity.z, 0, acceleration)
 	
 	if check_player_state('COMBAT'):
 		return
