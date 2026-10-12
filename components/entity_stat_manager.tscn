@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dln4f05ofgqdq"]
+
+[ext_resource type="Script" uid="uid://btqdeimgb7hdn" path="res://scripts/EntityStatManager.gd" id="1_8lf3c"]
+
+[node name="EntityStatManager" type="Node" unique_id=430298649]
+script = ExtResource("1_8lf3c")

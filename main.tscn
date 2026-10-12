@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dbm36psqh1g71"]
+
+[ext_resource type="Script" uid="uid://bucy7fq1t10es" path="res://scripts/Main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://dgn4taa05vs4l" path="res://scripts/MapManager.gd" id="2_lquwl"]
+[ext_resource type="Script" uid="uid://blixs2a831krf" path="res://scripts/CameraManager.gd" id="3_7mycd"]
+[ext_resource type="Script" uid="uid://cebjqmq4dnlrb" path="res://scripts/PlayerManager.gd" id="4_272bh"]
+[ext_resource type="Script" uid="uid://dxrij24sg5jlj" path="res://scripts/EnityManager.gd" id="5_5vw27"]
+[ext_resource type="Script" uid="uid://dadw728tn2lat" path="res://character_body_3d.gd" id="5_7mycd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
+albedo_color = Color(0.25565878, 0.25565878, 0.25565878, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bn7nu"]
+material = SubResource("StandardMaterial3D_7mycd")
+size = Vector3(8, 1, 8)
+
+[sub_resource type="Environment" id="Environment_iriu6"]
+background_mode = 1
+background_color = Color(0.3470055, 0.6449692, 0.8773423, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 16.0
+reflected_light_source = 1
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bn7nu"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_bn7nu"]
+radius = 0.4
+height = 1.8
+
+[node name="Main" type="Node3D" unique_id=1366540736]
+script = ExtResource("1_ig7tw")
+
+[node name="MapManager" type="Node3D" parent="." unique_id=1063517386]
+script = ExtResource("2_lquwl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MapManager" unique_id=1693681805]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.4791108, 0)
+mesh = SubResource("BoxMesh_bn7nu")
+
+[node name="CameraManager" type="Node3D" parent="." unique_id=978612493]
+script = ExtResource("3_7mycd")
+
+[node name="Camera3D" type="Camera3D" parent="CameraManager" unique_id=1790315107]
+environment = SubResource("Environment_iriu6")
+fov = 90.0
+
+[node name="PlayerManager" type="Node3D" parent="." unique_id=881425537]
+script = ExtResource("4_272bh")
+
+[node name="Player" type="CharacterBody3D" parent="PlayerManager" unique_id=1729527493]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player" unique_id=802497887]
+shape = SubResource("CapsuleShape3D_bn7nu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player" unique_id=969364380]
+mesh = SubResource("CapsuleMesh_bn7nu")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="PlayerManager" unique_id=1206970463]
+script = ExtResource("5_7mycd")
+
+[node name="EntityManager" type="Node3D" parent="." unique_id=158595945]
+script = ExtResource("5_5vw27")
